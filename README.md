@@ -162,6 +162,22 @@ CREATE INDEX index_name ON table_name (column_name);
 DROP INDEX index_name ON table_name;
 ```
 
+## foreign key
+```sql
+-- Create a table with a foreign key
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
+-- Adding a foreign key to an existing table
+ALTER TABLE Orders
+ADD CONSTRAINT fk_customer
+FOREIGN KEY (customer_id) REFERENCES Customers(customer_id);
+```
+
 ## Transactions
 ```sql
 -- Begin transaction
